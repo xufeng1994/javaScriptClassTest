@@ -35,16 +35,17 @@ function linkedlist() {
                 node.next = current;
             }else{
                 while(index ++<position){
-                    
+                    previous = current;
+                    current = current.next
                 }
+                node.next = current
+                previous.next = node 
             }
             length ++;
             return true
         }else{
             return false 
         }
-        
-
     }
     this.remove = function (element) { }
     this.removeAt = function (position) {
@@ -93,5 +94,5 @@ console.log(list.size())
 list.append(16)
 list.append(20)
 list.print()
-list.insertAt(0,18)
+list.insertAt(2,18)
 list.print()
