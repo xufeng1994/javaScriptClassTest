@@ -58,7 +58,7 @@ let compare = function(x,y){
     if(x<y)  return -1
     return 0    
 }
-console.log(a.sort(compare))
+    console.log(a.sort(compare))
 
 // reverse   颠倒数组中的元素
 console.log(a.reverse(compare))
