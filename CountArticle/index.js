@@ -8,7 +8,7 @@ let texts = fs.readFileSync('article.txt', 'utf8');
 
 // console.log(texts);  取值
 
-let allwords = {};
+let allwords = {};// 新建一个字典
 let words = texts.split(" ");  //去除空格 -- 数组
 
 words.forEach(function (element) {

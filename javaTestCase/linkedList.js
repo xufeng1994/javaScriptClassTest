@@ -25,49 +25,64 @@ function linkedlist() {
         length++;
     }
     this.insertAt = function (position, element) {
-        if (position >= 0 && position <= length){
+        if (position >= 0 && position <= length) {
             let current = head
-            let previous ;
+            let previous;
             let index = 0;
             let node = new Node(element)
-            if (position == 0){
+            if (position == 0) {
                 head = node;
                 node.next = current;
-            }else{
-                while(index ++<position){
+            } else {
+                while (index++ < position) {
                     previous = current;
                     current = current.next
                 }
                 node.next = current
-                previous.next = node 
+                previous.next = node
             }
-            length ++;
+            length++;
             return true
-        }else{
-            return false 
+        } else {
+            return false
         }
     }
-    this.remove = function (element) { }
+    this.remove = function (element) {
+        let index = this.indexOf(element)
+        this.removeAt(index)
+    }
+    // 链表中 重要的两个方法 insertAt() 和removeAt() 
     this.removeAt = function (position) {
-        if (position > -1 && position < length){
+        if (position > -1 && position < length) {
             let current = head;
             let previous;
-            let index = 0 
-            if (position === 0 ){
+            let index = 0
+            if (position === 0) {
                 head = current.next
-            }else
-            while(index++ <position){
-                previous = current
-                current = current.next
-            }
+            } else
+                while (index++ < position) {
+                    previous = current
+                    current = current.next
+                }
             previous.next = current.next
-            length --;
+            length--;
             return current.element;
-        }else{
+        } else {
             return null
         }
     }
-    this.indexOf = function (element) { }
+    this.indexOf = function (element) {
+        let current = head
+        let index = 0
+        while (current) {
+            if (element === current.element) {
+                return index;
+            }
+            index++;
+            current = current.next
+        }
+        return -1;
+    }
     this.size = function () {
         return length;
     }
@@ -94,5 +109,9 @@ console.log(list.size())
 list.append(16)
 list.append(20)
 list.print()
-list.insertAt(2,18)
+list.insertAt(2, 18)
+list.print()
+list.remove(20)
+console.log(list.indexOf(20))
+
 list.print()
